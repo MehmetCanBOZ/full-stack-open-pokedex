@@ -15,7 +15,7 @@ jobs:
           echo "Hello World!"
       - name: Now it is
         run: |
-          date [-u|--utc|--universal] [MMDDhhmm[[CC]YY][.ss]]
+          date
       - name: Directory content
         run: |
           ls -l
