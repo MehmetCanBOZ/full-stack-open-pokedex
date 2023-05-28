@@ -26,5 +26,6 @@ module.exports = {
     "react/prop-types": 0,
     "no-console": 0,
     "no-undef": 0,
+    "no-unused-vars": 0,
   },
 };
