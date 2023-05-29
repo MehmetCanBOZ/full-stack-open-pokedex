@@ -24,6 +24,8 @@ jobs:
         run: npm run test
       - name: Build
         run: npm run build
+      - name: example
+        run: echo "${{ github.event_name == 'push' && !contains(github.event.commits.*.message, '#skip')}}"
       - name: Trigger deployment
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
