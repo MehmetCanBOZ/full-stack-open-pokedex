@@ -17,12 +17,9 @@ jobs:
         run: npm install
       - name: Check style
         run: npm run eslint
-      - name: Build
-        run: npm run build
       - name: Test
         run: npm run test
-      - name: Deploy to production
-        uses: johnbeynon/render-deploy-action@v0.0.8
-        with:
-          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
-          api-key: ${{ secrets.MY_RENDER_API_KEY }}
+      - name: Build
+        run: npm run build
+      - name: Trigger deployment
+        run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
