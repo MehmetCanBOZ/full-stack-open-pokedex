@@ -1,0 +1,16 @@
+name: Health pipeline
+
+on:
+  schedule:
+    - cron: "30 4 * * 1"
+
+jobs:
+  health-check:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check the deployed service URL
+        uses: jtalk/url-health-check-action@v3
+        with:
+          url: https://fullstackopenpokodex.onrender.com/health
+          max-attempts: 3
+          retry-delay: 5s
